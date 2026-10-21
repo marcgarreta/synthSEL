@@ -1,0 +1,15 @@
+name: exp001_static_spheres
+seed: 42
+
+input:
+  flair: data/processed/sub-001/flair.nii.gz
+  region_mask: data/processed/sub-001/wm_mask.nii.gz  # lesions are only placed in white matter
+
+lesions:
+  n: 5
+  radius_mm: [2.0, 6.0]
+  intensity: 0.9   # normalised FLAIR scale, lesions are hyperintense
+  sigma: 1.0       # edge softness (voxels)
+  noise_std: 0.03
+
+output_dir: data/synthetic

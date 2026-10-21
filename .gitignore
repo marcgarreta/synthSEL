@@ -1,0 +1,40 @@
+# Medical imaging data: never commit patient data
+data/**
+!data/README.md
+*.nii
+*.nii.gz
+*.mgz
+*.dcm
+
+# Model weights / outputs
+*.pt
+*.pth
+*.ckpt
+runs/
+outputs/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Notebooks / OS / editors
+.ipynb_checkpoints/
+.DS_Store
+.vscode/
+.idea/
+
+# LaTeX build files
+thesis/**/*.aux
+thesis/**/*.log
+thesis/**/*.out
+thesis/**/*.toc
+thesis/**/*.synctex.gz
+thesis/**/*.fdb_latexmk
+thesis/**/*.fls
