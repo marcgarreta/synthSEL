@@ -1,7 +1,7 @@
 # synthSEL
 
 [![license](https://img.shields.io/badge/license-MIT-c6a925)](LICENSE)
-[![python](https://img.shields.io/badge/python-3.10%20%7C%203.12-3776ab?logo=python&logoColor=white)](pyproject.toml)
+[![python](https://img.shields.io/badge/python-3.14-3776ab?logo=python&logoColor=white)](pyproject.toml)
 [![tests](https://img.shields.io/github/actions/workflow/status/marcgarreta/synthSEL/ci.yml?branch=main&label=tests&logo=github)](https://github.com/marcgarreta/synthSEL/actions/workflows/ci.yml)
 [![codecov](https://img.shields.io/codecov/c/github/marcgarreta/synthSEL?logo=codecov&label=codecov)](https://codecov.io/gh/marcgarreta/synthSEL)
 [![brewing at](https://img.shields.io/badge/brewing%20at-MSc%20Data%20Science%20UOC-2f7fbf)](https://www.uoc.edu)
@@ -37,8 +37,8 @@ Workflow: write reusable code in `src/synthsel/` with tests → run it via `scri
 
 ## Setup
 
-Uses [uv](https://docs.astral.sh/uv/). Developed with **Python 3.12** (3.12.13 in the local `.venv`);
-the package supports Python ≥ 3.10, and CI tests 3.10 and 3.12.
+Uses [uv](https://docs.astral.sh/uv/). Python is pinned to **3.14** (see `.python-version`) for reproducibility, and `uv.lock` pins every
+dependency. CI runs the same version.
 
 ```bash
 uv sync                      # core + dev dependencies
@@ -62,7 +62,7 @@ uv run python scripts/generate_static_lesions.py configs/exp001_static_spheres.y
 
 - Tests use small synthetic phantoms, so they run fast in CI without patient data.
 - Tests that need real data or a GPU go under `@pytest.mark.slow`, which CI skips.
-- GitHub Actions runs ruff + pytest on Python 3.10 and 3.12 and uploads coverage to Codecov.
+- GitHub Actions runs ruff + pytest on Python 3.14 and uploads coverage to Codecov.
   Add a `CODECOV_TOKEN` repository secret (Codecov → repo settings).
 
 ## Data
