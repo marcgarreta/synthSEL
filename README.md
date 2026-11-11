@@ -1,10 +1,10 @@
 # synthSEL
 
-[![CI](https://github.com/marcgarreta/synthSEL/actions/workflows/ci.yml/badge.svg)](https://github.com/marcgarreta/synthSEL/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/marcgarreta/synthSEL/branch/main/graph/badge.svg)](https://codecov.io/gh/marcgarreta/synthSEL)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
-> 🍺 Brewing at **MSc Data Science, UOC**.
+[![license](https://img.shields.io/badge/license-MIT-c6a925)](LICENSE)
+[![python](https://img.shields.io/badge/python-3.10%20%7C%203.12-3776ab?logo=python&logoColor=white)](pyproject.toml)
+[![tests](https://img.shields.io/github/actions/workflow/status/marcgarreta/synthSEL/ci.yml?branch=main&label=tests&logo=github)](https://github.com/marcgarreta/synthSEL/actions/workflows/ci.yml)
+[![codecov](https://img.shields.io/codecov/c/github/marcgarreta/synthSEL?logo=codecov&label=codecov)](https://codecov.io/gh/marcgarreta/synthSEL)
+[![brewing at](https://img.shields.io/badge/brewing%20at-MSc%20Data%20Science%20UOC-2f7fbf)](https://www.uoc.edu)
 
 Synthetic generation of **MS lesions in 3D FLAIR MRI**, with the long-term aim of detecting
 **slowly expanding lesions (SEL)**. The current scope is **lesion synthesis only**: lesions are

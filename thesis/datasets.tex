@@ -1,0 +1,76 @@
+\subsection{MSSEG-2 Dataset}
+
+The MSSEG-2 dataset was released for the MSSEG-2 challenge at MICCAI 2021, which targeted the
+segmentation of new multiple sclerosis (MS) lesions between two timepoints. It comprises 100 MS
+patients from the OFSEP cohort, each with two 3D FLAIR scans acquired one to three years apart,
+for a total of 200 volumes. Only FLAIR images are provided, so no other sequence is used here.
+
+The data come from 15 scanners across the cohort's centres, covering three vendors and both field
+strengths (Table~\ref{tab:msseg2-scanners}). Scanner attribution per scan is
+% TODO: check in the README of the download whether per-scan scanner metadata is provided.
+not yet confirmed.
+
+The only preprocessing applied to the raw data is a rigid registration of the two timepoints to
+their halfway space, where the ground truth was computed. No skull stripping or bias field
+correction is included.\footnote{Default preprocessing scripts (Anima) are provided by the
+organisers but are not part of the released images.}
+
+The reference masks delineate only the \emph{new} lesions that appear between the two timepoints,
+not the full lesion load. They were segmented independently by four expert neuroradiologists, and
+a senior neuroradiologist confirmed or rejected the lesions in disagreement. The final consensus
+was obtained by majority voting. Masks are released only for the 40 training cases. The remaining
+60 cases form the challenge test set, and all GE scanners were excluded from training to assess
+generalisation. Access is granted through Shanoir-NG after accepting the OFSEP data usage
+agreement.
+
+\begin{table}[ht]
+\centering
+\caption{Scanners in the MSSEG-2 dataset.}
+\label{tab:msseg2-scanners}
+\begin{tabular}{lll}
+\hline
+Vendor & Model & Field strength \\
+\hline
+GE      & Optima MR450w, SIGNA HDxt & 1.5T \\
+GE      & SIGNA HDx & 3T \\
+Philips & Ingenia, Achieva & 1.5T \\
+Philips & Ingenia (2), Achieva dStream, Achieva & 3T \\
+Siemens & Aera, Avanto (2) & 1.5T \\
+Siemens & Skyra, Verio, Prisma & 3T \\
+\hline
+\end{tabular}
+\end{table}
+
+% TODO: after download, compute and report:
+%   - native / stored voxel resolution
+%   - mean lesion load of the new-lesion masks (note: new lesions only)
+%   - number of images per scanner, to fill a train/test partition table
+The mean lesion load of the training masks is XX\% $\pm$ XX\%, which is low because the masks
+contain only new lesions.
+
+\subsection{OPEN-MS Dataset}
+
+The OPEN-MS dataset is the public MS dataset released by the Laboratory of Imaging Technologies
+(University of Ljubljana)~\cite{lesjak2017,lesjak2016}, distributed under a CC-BY licence. It has a
+cross-sectional and a longitudinal part.
+
+The cross-sectional part contains 30 MS patients with one scan session each. Most are
+relapsing-remitting (24 of 30), and the rest are CIS, secondary progressive, primary progressive
+or unspecified. Each patient has FLAIR, T1-weighted, contrast-enhanced T1-weighted and
+T2-weighted images, together with a consensus white matter lesion mask obtained from multiple
+raters. In this work only the FLAIR images and the lesion masks are used. Because the masks cover
+all white matter lesions, this part is the one suited to lesion synthesis.
+
+The longitudinal part contains 20 patients scanned twice, 81 to 723 days apart, with T1, T2 and
+FLAIR images and ground-truth masks of lesion \emph{change}. It is not used for now.
+
+Several processed versions are distributed: the raw images, a version co-registered to FLAIR with
+bias field correction and a brain mask, a version resampled to 1\,mm isotropic voxels, and a
+version in MNI space (neck removal, N4 bias correction, winsorisation, brain extraction and
+registration to the MNI template). The images were acquired on a 3T Siemens scanner at the
+University Medical Center Ljubljana.
+% TODO: verify scanner and native resolution against Lesjak et al. 2017; the dataset page does not state them.
+
+% TODO: after download, report the mean lesion load (cross-sectional masks), and the
+% train/test partition used (30 volumes, single site).
+The mean lesion load is XX\% $\pm$ XX\%.
