@@ -4,6 +4,8 @@ version = "0.1.0"
 description = "Synthetic dynamic MS lesion generation in 3D FLAIR MRI for slowly expanding lesion (SEL) detection."
 readme = "README.md"
 requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
 authors = [{ name = "Marc Garreta Basora" }]
 dependencies = [
     "numpy>=1.26",
